@@ -285,23 +285,42 @@ export function randomPermutation(min: number, max: number, seed : number = 0): 
     return permutation;
 }
 
-
 /**
  * Get the current day timestamp.
  * @returns number - current day timestamp
  */
 export async function getCurrentDayTimestamp(): Promise<number> {
     try {
-        return fetch('https://worldtimeapi.org/api/timezone/Europe/Zurich')
-            .then((response: Response) => response.json())
-            .then(data => {
-                const currentDate: Date = new Date(data.datetime)
-                currentDate.setUTCHours(0, 0, 0, 0)
-                return currentDate.getTime()
-            })
+        // Try to use timeapi.io to get the current UTC time
+        const response = await fetch('https://timeapi.io/api/Time/current/zone?timeZone=UTC')
+        const data = await response.json()
+        
+        // Create a date object from the API response
+        const currentDate = new Date(Date.UTC(
+            data.year,
+            data.month - 1, // JavaScript months are 0-indexed
+            data.day,
+            0, 0, 0, 0 // Set to midnight UTC
+        ))
+        return currentDate.getTime()
     } catch (error) {
         console.error('Error fetching current time:', error)
-        throw error
+        
+        // Fallback to a deterministic algorithm that doesn't depend on local time
+        // Get the current date in UTC
+        const now = new Date()
+        
+        // Calculate days since Unix epoch (January 1, 1970)
+        // This ensures all users get the same value regardless of their timezone
+        const utcDate = new Date(Date.UTC(
+            now.getUTCFullYear(),
+            now.getUTCMonth(),
+            now.getUTCDate(),
+            0, 0, 0, 0
+        ))
+        
+        console.warn('Using fallback UTC-based calculation due to API failure')
+        return utcDate.getTime()
     }
 }
 
