@@ -291,20 +291,13 @@ export function randomPermutation(min: number, max: number, seed : number = 0): 
  */
 export async function getCurrentDayTimestamp(): Promise<number> {
     try {
-        // Try to use timeapi.io to get the current UTC time
-        const response = await fetch('https://timeapi.io/api/Time/current/zone?timeZone=UTC')
-        const data = await response.json()
+        // Use our own backend API to get the current UTC time
+        const response = await $fetch('/api/current-time')
         
-        // Create a date object from the API response
-        const currentDate = new Date(Date.UTC(
-            data.year,
-            data.month - 1, // JavaScript months are 0-indexed
-            data.day,
-            0, 0, 0, 0 // Set to midnight UTC
-        ))
-        return currentDate.getTime()
+        // The API already returns the timestamp calculated at midnight UTC
+        return response.timestamp
     } catch (error) {
-        console.error('Error fetching current time:', error)
+        console.error('Error fetching current time from backend:', error)
         
         // Fallback to a deterministic algorithm that doesn't depend on local time
         // Get the current date in UTC
