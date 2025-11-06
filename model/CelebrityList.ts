@@ -843,4 +843,5 @@ export const pres_celebrities = [
     "Neymar",
     "Serena Williams",
     "Roger Federer",
+    "Virginia Woolf"
 ]
