@@ -817,6 +817,7 @@ export const celebrities: string[] = [
     "Anni-Frid Lyngstad",
     "Agnetha Fältskog",
     "Björn Ulvaeus",
+    "Virginia Woolf",
 ]
 
 export const pres_celebrities = [
@@ -843,5 +844,4 @@ export const pres_celebrities = [
     "Neymar",
     "Serena Williams",
     "Roger Federer",
-    "Virginia Woolf"
 ]
