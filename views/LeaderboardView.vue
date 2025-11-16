@@ -25,7 +25,7 @@ const isLeaderboardOpen = ref(false)
 const styledGames = computed(()=> {
   if (user) {
     return props.games.map((game) => {
-      if (game.username === props.username) game.class = 'bg-primary-500/25'
+      if (game.username === props.username) return { ...game, class: 'bg-primary-500/25' }
       return game
     })
   }
@@ -60,7 +60,7 @@ const columns = [{
 </script>
 
 <template>
-  <UButton icon="i-heroicons-trophy-16-solid" @click="() => { isLeaderboardOpen = true; emit('update-leaderboard') }">
+  <UButton icon="i-heroicons-trophy-16-solid" @click="() => { isLeaderboardOpen = true; emit('update-leaderboard') }" aria-label="Open leaderboard">
     <span class="hidden md:inline">Leaderboard</span>
   </UButton>
   <UModal v-model="isLeaderboardOpen" :ui="{
@@ -71,9 +71,9 @@ const columns = [{
         <div class="flex items-center justify-between">
           <div class="flex flex-row gap-2">
             <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Leaderboard</h3>
-            <UButton color="gray" variant="ghost" icon="i-heroicons-arrow-path-20-solid" @click="emit('update-leaderboard')"/>
+            <UButton color="gray" variant="ghost" icon="i-heroicons-arrow-path-20-solid" @click="emit('update-leaderboard')" aria-label="Refresh leaderboard"/>
           </div>
-          <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" @click="isLeaderboardOpen = false" />
+          <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" @click="isLeaderboardOpen = false" aria-label="Close leaderboard" />
         </div>
       </template>
       <div>

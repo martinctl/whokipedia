@@ -81,7 +81,7 @@ function scrollToParagraph(index: number, size: string, over: boolean): void {
     <div class="p-1 sm:ml-4 sm:float-right">
       <InfoboxView
           :fields = "fields" :imageUrl="imageUrl"
-          :over="over" :buttonLink="buttonLink"
+          :over="over" :buttonLink="buttonLink" :celebrityName="name"
       />
     </div>
 

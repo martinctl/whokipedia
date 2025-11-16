@@ -64,7 +64,7 @@ async function onSubmitEmail (event: FormSubmitEvent<EmailSchema>) {
       </UFormGroup>
       <UFormGroup label="Password" name="password">
         <template #hint>
-          <p class="text-primary hover:text-primary-600 text-xs cursor-pointer" @click="isPasswordForgottenModalOpen = true">
+          <p class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 text-xs cursor-pointer" @click="isPasswordForgottenModalOpen = true">
             Forgot your password ?
           </p>
         </template>
@@ -83,7 +83,7 @@ async function onSubmitEmail (event: FormSubmitEvent<EmailSchema>) {
           <div class="flex items-center justify-between">
             <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Reset your password</h3>
             <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid"
-                     @click="isPasswordForgottenModalOpen = false"/>
+                     @click="isPasswordForgottenModalOpen = false" aria-label="Close password reset modal"/>
           </div>
         </template>
         <UForm :schema="emailSchema" :state="emailState" @submit="onSubmitEmail">

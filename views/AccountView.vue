@@ -52,7 +52,7 @@ const user = useCurrentUser()
 </script>
 
 <template>
-  <UButton icon="i-heroicons-user-circle-16-solid" @click="isModalOpen = true" :disabled="!user">
+  <UButton icon="i-heroicons-user-circle-16-solid" @click="isModalOpen = true" :disabled="!user" aria-label="Open account settings">
     <span class="hidden md:inline">Account</span>
   </UButton>
   <UModal v-model="isModalOpen" :ui="{
@@ -63,9 +63,9 @@ const user = useCurrentUser()
       <template #header>
         <div class="flex items-center justify-between">
           <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">
-            Welcome, <span class="text-primary">{{ username }}</span>.
+            Welcome, <span class="text-primary-600 dark:text-primary-400">{{ username }}</span>.
           </h3>
-          <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" @click="isModalOpen = false" />
+          <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" @click="isModalOpen = false" aria-label="Close account settings" />
         </div>
       </template>
 

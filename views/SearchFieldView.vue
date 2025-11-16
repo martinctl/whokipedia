@@ -69,11 +69,13 @@ watch(selectedName, newName)
         option-attribute="name"
         trailing
         by="id"
+        aria-label="Search and select a celebrity name"
         :style="{ fontSize: '18px', padding: '10px', height: '40px', backgroundColor: alert ? redColor : '' }"
         :class="{'tremble': tremble }" class="w-full mr-2" />
     <UButton v-if="!over" variant="soft"
              icon="i-heroicons-plus-circle-16-solid"
-             @click="emit('new-hint-asked')"/>
+             @click="emit('new-hint-asked')"
+             aria-label="Get a new hint"/>
   </div>
 </template>
 

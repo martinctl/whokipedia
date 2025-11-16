@@ -4,7 +4,7 @@ import { type InfoboxHint, compulsoryLabels } from "~/model/Hint"
 import { capitalize } from "~/utilities/Utils"
 
 // Props
-defineProps( {
+const props = defineProps( {
     fields: {
       type: Array<InfoboxHint>,
       required: true,
@@ -21,6 +21,18 @@ defineProps( {
       type : String,
       required: true,
     },
+    celebrityName: {
+      type: String,
+      default: '',
+    },
+})
+
+// Computed
+const imageAlt = computed(() => {
+  if (props.celebrityName && props.over) {
+    return `Photo of ${props.celebrityName}`
+  }
+  return props.celebrityName ? `Blurred image of a celebrity - ${props.celebrityName}` : 'Blurred celebrity image'
 })
 
 </script>
@@ -31,7 +43,7 @@ defineProps( {
       <template #header>
         <div class="flex flex-col items-center justify-center my-5">
           <Transition name="scale-up" mode="out-in">
-            <img :src="imageUrl" :key="imageUrl" alt="image"
+            <img :src="imageUrl" :key="imageUrl" :alt="imageAlt"
                  class="w-40 object-cover pointer-events-none rounded-md rounded-b-md shadow-md"/>
           </Transition>
         </div>
@@ -41,10 +53,10 @@ defineProps( {
           <tr v-for="(field, index) in fields" :key="index">
               <td class="text-left align-top pr-6 pt-2">
                 <p v-if="field.label === 'Death' && !field.revealed"
-                   class="text-blue-500 font-semibold"> Status </p>
+                   class="text-blue-600 dark:text-blue-400 font-semibold"> Status </p>
                 <p v-else-if=" field.revealed || compulsoryLabels.hasOwnProperty(field.label) || over"
-                     class="text-blue-500 font-semibold"> {{ field.label }} </p>
-                <p v-else class="text-blue-500 font-semibold blur-sm"> Unknown </p>
+                     class="text-blue-600 dark:text-blue-400 font-semibold"> {{ field.label }} </p>
+                <p v-else class="text-blue-600 dark:text-blue-400 font-semibold blur-sm"> Unknown </p>
               </td>
               <td class="text-left pt-2">
                 <Transition>

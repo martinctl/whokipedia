@@ -97,10 +97,10 @@ function validate(state: any): FormError[] {
       <template #header>
         <div class="flex items-center justify-between">
           <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Delete your account</h3>
-          <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" @click="isConfirmModalOpen = false"/>
+          <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" @click="isConfirmModalOpen = false" aria-label="Close delete account confirmation"/>
         </div>
       </template>
-      <p class="mb-4">Are you sure you want to say goodbye, <span class="text-primary">{{ username }}</span> ?</p>
+      <p class="mb-4">Are you sure you want to say goodbye, <span class="text-primary-600 dark:text-primary-400">{{ username }}</span> ?</p>
       <UButton block color="red" icon="i-heroicons-trash-16-solid" @click="() => {
            isConfirmModalOpen = false
            emit('delete-account-event', user?.email ?? '', state.password)

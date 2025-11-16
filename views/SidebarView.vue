@@ -55,7 +55,7 @@ function showAndEmit(seconds : number, over : boolean){
 
 <template>
   <div :class="showRules ? '' : 'flex justify-between sm:mt-1'">
-    <UButton v-if="!showRules" @click="areRulesOpen = true" icon="i-material-symbols-help-rounded" variant="soft" class="mr-2 max-w-20 w-1/6 justify-center items-center"/>
+    <UButton v-if="!showRules" @click="areRulesOpen = true" icon="i-material-symbols-help-rounded" variant="soft" class="mr-2 max-w-20 w-1/6 justify-center items-center" aria-label="Show game rules"/>
     <UCard :class="showRules ? 'mb-5' : 'w-full'" :ui="{
       background: over ? 'bg-gray-100' : 'bg-white',
       body: {
@@ -67,11 +67,15 @@ function showAndEmit(seconds : number, over : boolean){
           <UDivider label="hints" :ui="{ label: 'text-xs' }"/>
           <div :class="showRules ? 'flex mb-4 mt-2' : 'flex'">
             <UProgress :value="(guessCount / totalGuesses) * 100" size="md"
-                       :class="showRules ? 'mb-2 mr-2' : 'mr-1'" ref="progressBar">
+                       :class="showRules ? 'mb-2 mr-2' : 'mr-1'" ref="progressBar"
+                       aria-label="Hints progress"
+                       :aria-valuenow="guessCount"
+                       :aria-valuemin="0"
+                       :aria-valuemax="totalGuesses">
               <template #indicator="{ percent }">
                 <div class="flex justify-between">
                   <div class="text-right whitespace-pre" :style="{ width: `${ percent + 1.2 * (16 / width * 100) }%` }">
-                    <span class="text-primary">
+                    <span class="text-primary-600 dark:text-primary-400">
                       {{ Math.round((percent / 100) * totalGuesses)}} / {{ totalGuesses}}
                     </span>
                   </div>
@@ -83,7 +87,7 @@ function showAndEmit(seconds : number, over : boolean){
         <UDivider v-if="!showRules" type="dashed" orientation="vertical" class="w-1/12"/>
         <div :class="showRules ? '' : 'w-4/12'">
           <UDivider label="time" :ui="{ label: 'text-xs' }"/>
-          <p class="mt-2 text-center text-primary">{{ showAndEmit(seconds, over)}}</p>
+          <p class="mt-2 text-center text-primary-600 dark:text-primary-400">{{ showAndEmit(seconds, over)}}</p>
         </div>
       </div>
     </UCard>
@@ -92,41 +96,41 @@ function showAndEmit(seconds : number, over : boolean){
   <div v-if="showRules">
     <UDivider label="How to play" :ui="{ label: 'text-sm font-bold' }"/>
     <p class="py-3 font-semibold text-sm">
-    Guess the celebrity <span class="text-primary">in as few hints as possible</span>.
+    Guess the celebrity <span class="text-primary-600 dark:text-primary-400">in as few hints as possible</span>.
     </p>
     <ul class="list-inside m-2 text-sm">
       <li class="mb-4"><UIcon name="i-heroicons-arrow-long-right-16-solid"/>
-        Each unsuccessful guess brings a <span class="text-primary">new hint</span>.</li>
+        Each unsuccessful guess brings a <span class="text-primary-600 dark:text-primary-400">new hint</span>.</li>
       <li class="mb-4"><UIcon name="i-heroicons-arrow-long-right-16-solid"/>
-        Guess until you find the <span class="text-primary">celebrity</span> or until
-        <span class="text-primary">all hints are consumed</span>.</li>
+        Guess until you find the <span class="text-primary-600 dark:text-primary-400">celebrity</span> or until
+        <span class="text-primary-600 dark:text-primary-400">all hints are consumed</span>.</li>
       <li><UIcon name="i-heroicons-arrow-long-right-16-solid"/>
-        If you do not have the slightest <span class="text-primary">idea</span>, press the
-        <UIcon class="text-primary" name="i-heroicons-plus-circle-16-solid"/> button to get a new hint. Be
-        careful, this will <span class="text-primary">consume</span> a new guess !</li>
+        If you do not have the slightest <span class="text-primary-600 dark:text-primary-400">idea</span>, press the
+        <UIcon class="text-primary-600 dark:text-primary-400" name="i-heroicons-plus-circle-16-solid"/> button to get a new hint. Be
+        careful, this will <span class="text-primary-600 dark:text-primary-400">consume</span> a new guess !</li>
     </ul>
   </div>
 
   <USlideover v-model="areRulesOpen" title="Rules">
     <UCard :ui="{ body: { base: 'flex-1' }, ring: '', shadow: '', rounded: ''}">
       <div class="flex items-center justify-end">
-        <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1" @click="areRulesOpen = false" />
+        <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1" @click="areRulesOpen = false" aria-label="Close rules" />
       </div>
       <div class="p-5 w-full box-border">
         <UDivider label="How to play" :ui="{ label: 'text-xl font-bold' }"/>
         <p class="py-3 font-semibold">
-          Guess the celebrity <span class="text-primary">in as few hints as possible</span>.
+          Guess the celebrity <span class="text-primary-600 dark:text-primary-400">in as few hints as possible</span>.
         </p>
         <ul class="list-inside m-2">
           <li><UIcon name="i-heroicons-arrow-long-right-16-solid"/>
-            Each unsuccessful guess brings a <span class="text-primary">new hint</span>.</li>
+            Each unsuccessful guess brings a <span class="text-primary-600 dark:text-primary-400">new hint</span>.</li>
           <li><UIcon name="i-heroicons-arrow-long-right-16-solid"/>
-            Guess until you find the <span class="text-primary">celebrity</span> or until
-            <span class="text-primary">all hints are consumed</span>.</li>
+            Guess until you find the <span class="text-primary-600 dark:text-primary-400">celebrity</span> or until
+            <span class="text-primary-600 dark:text-primary-400">all hints are consumed</span>.</li>
           <li><UIcon name="i-heroicons-arrow-long-right-16-solid"/>
-            If you do not have the slightest <span class="text-primary">idea</span>, press the
-            <UIcon class="text-primary" name="i-heroicons-plus-circle-16-solid"/> button to get a new hint. Be
-            careful, this will <span class="text-primary">consume</span> a new guess !</li>
+            If you do not have the slightest <span class="text-primary-600 dark:text-primary-400">idea</span>, press the
+            <UIcon class="text-primary-600 dark:text-primary-400" name="i-heroicons-plus-circle-16-solid"/> button to get a new hint. Be
+            careful, this will <span class="text-primary-600 dark:text-primary-400">consume</span> a new guess !</li>
         </ul>
       </div>
     </UCard>

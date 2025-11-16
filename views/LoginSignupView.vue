@@ -43,10 +43,10 @@ watch(() => props.close, () => {
     </div>
   </div>
   <div v-else>
-    <UButton v-if="user" icon="i-heroicons-arrow-left-start-on-rectangle-16-solid" @click="emit('logout-event')">
+    <UButton v-if="user" icon="i-heroicons-arrow-left-start-on-rectangle-16-solid" @click="emit('logout-event')" aria-label="Log out">
       <span class="hidden md:inline">Log out</span>
     </UButton>
-    <UButton v-else icon="i-heroicons-arrow-right-end-on-rectangle-16-solid" @click="isModalOpen = true">
+    <UButton v-else icon="i-heroicons-arrow-right-end-on-rectangle-16-solid" @click="isModalOpen = true" aria-label="Log in">
       <span class="hidden md:inline">Log in</span>
     </UButton>
   </div>

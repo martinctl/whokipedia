@@ -40,7 +40,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>): Promise<void> {
         <UCard>
           <template #header>
             <div class="flex items-center justify-between">
-              <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Reset your <span class="text-primary">password</span>.</h3>
+              <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Reset your <span class="text-primary-600 dark:text-primary-400">password</span>.</h3>
             </div>
           </template>
           <UForm :schema="schema" :state="state" @submit="onSubmit">

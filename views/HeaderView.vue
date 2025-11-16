@@ -74,18 +74,20 @@ const logoPath = '/img/logo-primary-filled.svg'
             :to="`https://github.com/roxannecvl/whokipedia`"
             icon="i-simple-icons-github"
             color="white"
-            target="_blank"/>
+            target="_blank"
+            aria-label="Open Whokipedia on Github"/>
       </UTooltip>
       <UTooltip :text="`Switch to ${$colorMode.preference == 'light' ? 'dark' : 'light'} Mode`">
         <UButton
             :icon="$colorMode.preference == 'dark' ? 'i-heroicons-moon-solid' : 'i-heroicons-sun-solid'"
             @click="$colorMode.preference = ($colorMode.preference == 'light' ? 'dark' : 'light')"
-            color="white"/>
+            color="white"
+            :aria-label="`Switch to ${$colorMode.preference == 'light' ? 'dark' : 'light'} mode`"/>
       </UTooltip>
     </div>
-    <a href="/">
+    <a href="/" aria-label="Go to Whokipedia home page">
       <div class="flex">
-        <img :src="logoPath" alt="logo" class="w-9 h-9 mx-auto"/>
+        <img :src="logoPath" alt="Whokipedia logo" class="w-9 h-9 mx-auto"/>
         <p class="font-black text-3xl hidden sm:block select-none">Whokipedia</p>
       </div>
     </a>

@@ -77,18 +77,18 @@ onMounted(() => {
             </div>
             <div class="flex flex-col gap-2">
               <p class="text-lg font-semibold">
-                Guess the celebrity <span class="text-primary">in as few hints as possible</span>
+                Guess the celebrity <span class="text-primary-600 dark:text-primary-400">in as few hints as possible</span>
               </p>
               <ul class="list-inside m-2">
                 <li><UIcon name="i-heroicons-arrow-long-right-16-solid"/>
-                  Each unsuccessful guess brings a <span class="text-primary">new hint</span>.</li>
+                  Each unsuccessful guess brings a <span class="text-primary-600 dark:text-primary-400">new hint</span>.</li>
                 <li><UIcon name="i-heroicons-arrow-long-right-16-solid"/>
-                  Guess until you find the <span class="text-primary">celebrity</span> or until
-                  <span class="text-primary">all hints are consumed</span>.</li>
+                  Guess until you find the <span class="text-primary-600 dark:text-primary-400">celebrity</span> or until
+                  <span class="text-primary-600 dark:text-primary-400">all hints are consumed</span>.</li>
                 <li><UIcon name="i-heroicons-arrow-long-right-16-solid"/>
-                  If you do not have the slightest <span class="text-primary">idea</span>, press the
-                  <UIcon class="text-primary" name="i-heroicons-plus-circle-16-solid"/> button to get a new hint. Be
-                  careful, this will <span class="text-primary">consume</span> a new guess !</li>
+                  If you do not have the slightest <span class="text-primary-600 dark:text-primary-400">idea</span>, press the
+                  <UIcon class="text-primary-600 dark:text-primary-400" name="i-heroicons-plus-circle-16-solid"/> button to get a new hint. Be
+                  careful, this will <span class="text-primary-600 dark:text-primary-400">consume</span> a new guess !</li>
               </ul>
             </div>
           </div>
