@@ -1,13 +1,5 @@
 export default defineNuxtConfig({
-  modules: [
-      '@nuxt/ui',
-      'nuxt-vuefire',
-      '@pinia/nuxt',
-  ],
-
-  ui: {
-      icons: ['simple-icons', 'eos-icons', 'material-symbols']
-  },
+  modules: ['@nuxt/ui', 'nuxt-vuefire', '@pinia/nuxt', "@nuxtjs/seo"],
 
   vuefire: {
       auth: {
@@ -29,6 +21,14 @@ export default defineNuxtConfig({
       head: {
           viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
       }
+  },
+
+  // SEO Configuration
+  site: {
+    url: 'https://whokipedia.com',
+    name: 'Whokipedia',
+    description: 'Test your knowledge of the who\'s who in Whokipedia, where each clue leads you closer to uncovering the celebrity behind the blur! A guessing game inspired by Wikipedia and Guess Who.',
+    defaultLocale: 'en',
   },
 
   compatibilityDate: "2025-03-11"

@@ -13,6 +13,17 @@ definePageMeta({
   middleware: "auth"
 })
 
+// SEO metadata
+useSeoMeta({
+  title: 'Daily Challenge - Whokipedia',
+  description: 'Play the daily challenge on Whokipedia! Guess today\'s celebrity with as few hints as possible and compete on the leaderboard.',
+  ogTitle: 'Daily Challenge - Whokipedia',
+  ogDescription: 'Play the daily challenge on Whokipedia! Guess today\'s celebrity and compete on the leaderboard.',
+  ogImage: 'https://whokipedia.com/img/logo-filled.png',
+  ogUrl: 'https://whokipedia.com/daily-challenge',
+  twitterCard: 'summary_large_image',
+})
+
 // Models
 const userModel: UserStore = useUserStore()
 const gameModel: GameStore = useGameStore()

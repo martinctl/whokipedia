@@ -7,6 +7,17 @@ import GamePresenter from "~/presenters/GamePresenter.vue"
 import SidebarPresenter from "~/presenters/SidebarPresenter.vue"
 import PlayAgainPresenter from "~/presenters/PlayAgainPresenter.vue"
 
+// SEO metadata
+useSeoMeta({
+  title: 'Solo Mode - Practice on Whokipedia',
+  description: 'Play Whokipedia in solo mode! Practice guessing celebrities with unlimited games. Test your knowledge and improve your skills.',
+  ogTitle: 'Solo Mode - Practice on Whokipedia',
+  ogDescription: 'Play Whokipedia in solo mode! Practice guessing celebrities with unlimited games.',
+  ogImage: 'https://whokipedia.com/img/logo-filled.png',
+  ogUrl: 'https://whokipedia.com/solo-mode',
+  twitterCard: 'summary_large_image',
+})
+
 // Models
 const gameModel: GameStore = useGameStore()
 
