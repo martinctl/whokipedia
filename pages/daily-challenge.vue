@@ -15,13 +15,17 @@ definePageMeta({
 
 // SEO metadata
 useSeoMeta({
-  title: 'Daily Challenge - Whokipedia',
-  description: 'Play the daily challenge on Whokipedia! Guess today\'s celebrity with as few hints as possible and compete on the leaderboard.',
-  ogTitle: 'Daily Challenge - Whokipedia',
-  ogDescription: 'Play the daily challenge on Whokipedia! Guess today\'s celebrity and compete on the leaderboard.',
+  title: 'Daily Challenge - Today\'s Celebrity Puzzle',
+  description: 'Play today\'s Whokipedia daily challenge! Guess the celebrity from Wikipedia-style clues. One puzzle per day. Compete on the leaderboard and see how you rank',
+  keywords: 'daily challenge, daily game, daily puzzle, celebrity puzzle today, daily celebrity game, today puzzle, daily word game, celebrity quiz daily, free daily challenge',
+  ogTitle: 'Daily Challenge - Today\'s Celebrity Puzzle',
+  ogDescription: 'Play today\'s Whokipedia daily challenge! Guess the celebrity from Wikipedia-style clues. One puzzle per day.',
   ogImage: 'https://whokipedia.com/img/logo-filled.png',
   ogUrl: 'https://whokipedia.com/daily-challenge',
+  ogType: 'website',
   twitterCard: 'summary_large_image',
+  twitterTitle: 'Daily Challenge - Whokipedia',
+  twitterDescription: 'Play today\'s celebrity puzzle! One challenge per day.',
 })
 
 // Models

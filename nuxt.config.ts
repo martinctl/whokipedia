@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   site: {
     url: 'https://whokipedia.com',
     name: 'Whokipedia',
-    description: 'Test your knowledge of the who\'s who in Whokipedia, where each clue leads you closer to uncovering the celebrity behind the blur! A guessing game inspired by Wikipedia and Guess Who.',
+    description: 'Whokipedia: A free daily celebrity guessing game! Guess the famous person from Wikipedia-style clues. New puzzle every day.',
     defaultLocale: 'en',
   },
 

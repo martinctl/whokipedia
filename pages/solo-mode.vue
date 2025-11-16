@@ -9,12 +9,14 @@ import PlayAgainPresenter from "~/presenters/PlayAgainPresenter.vue"
 
 // SEO metadata
 useSeoMeta({
-  title: 'Solo Mode - Practice on Whokipedia',
-  description: 'Play Whokipedia in solo mode! Practice guessing celebrities with unlimited games. Test your knowledge and improve your skills.',
-  ogTitle: 'Solo Mode - Practice on Whokipedia',
-  ogDescription: 'Play Whokipedia in solo mode! Practice guessing celebrities with unlimited games.',
+  title: 'Solo Mode - Practice Celebrity Guessing',
+  description: 'Practice mode on Whokipedia! Play unlimited celebrity guessing games to improve your skills. Perfect for learning before the daily challenge. Free to play!',
+  keywords: 'celebrity guessing practice, unlimited games, practice mode, celebrity quiz practice, guessing game practice, free practice games',
+  ogTitle: 'Solo Mode - Practice Celebrity Guessing',
+  ogDescription: 'Practice mode on Whokipedia! Play unlimited celebrity guessing games to improve your skills.',
   ogImage: 'https://whokipedia.com/img/logo-filled.png',
   ogUrl: 'https://whokipedia.com/solo-mode',
+  ogType: 'website',
   twitterCard: 'summary_large_image',
 })
 
